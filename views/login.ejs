@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <body>
+    <h1>用户登录</h1>
+    <span>用户名：</span><input type="text" id="userName"/><br/><br/>   
+    <span>密码：</span><input type="password" id="psw"/><br/><br/>
+    <div class="control-group">
+    <label for="requirement" class="col-md-3 control-label span3">图片上传</label>
+    <div class="col-md-9">
+        <div class="input-group">
+            <input id="photoCover" class="form-control" readonly type="text">
+            <label class="input-group-btn">
+                <input id="file" type="file" name="file" style="left: -9999px; position: absolute;">
+                <span class="btn btn-default">Browse</span>
+            </label>
+        </div>
+    </div>
+    <button class="login-btn" type="submit">登录</button>
+  </body>
+</html>
+<script>
+//html5实现图片预览功能
+        $(function () {
+            $("#file").change(function (e) {
+                var file = e.target.files[0] || e.dataTransfer.files[0];
+                $('#photoCover').val(document.getElementById("file").files[0].name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        $("img").attr("src", this.result);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        })
+        //方式一 Jquery实现
+        function saveUser2() {
+            // var id = $("#id").val().trim();
+            // var uname = $("#uname").val().trim();
+            // var pwd = $("#pwd").val().trim();
+            var file = document.getElementById("file").files[0];
+            var formData = new FormData();
+            formData.append('id', id);
+            formData.append('uname', uname);
+            formData.append('pwd', pwd);
+            formData.append('file', file);
+
+            $.ajax({
+                url: "/home/about",
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                mimeType: "multipart/form-data",
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+$('.login-btn').click(function(){
+  $.get("/login4ajax",{
+  　　userName:$('#userName').val(),
+  　　psw:$('#psw').val(),
+      file:document.getElementById("file").files[0]
+　　},function(result){
+  console.log('result',result)
+      var res=JSON.parse(result);
+      if(res.status=="OK"){
+    　　　alert(res.msg)
+      }
+//　　　location.href="/blog"
+　　}
+  );
+})
+
+
+</script>

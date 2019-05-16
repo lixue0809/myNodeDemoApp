@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>注册</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <body>
+    <h1>用户注册</h1>
+    <span>用户名：</span><input type="text" id="userName"/><br/><br/>   
+    <span>密码：</span><input type="password" id="psw"/><br/><br/>
+    <button class="regest-btn" type="submit">注册</button>
+  </body>
+</html>
+<script>
+$('.regest-btn').click(function(){
+  $.get("/regest4ajax",{
+  　　userName:$('#userName').val(),
+  　　psw:$('#psw').val()
+　　},function(res){
+　　　　alert(res)
+　　　　// 向tbody中添加数据
+　　}
+  );
+})
+
+
+</script>

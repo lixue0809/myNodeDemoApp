@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/mui.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+    <script type="text/javascript" src="/javascript/rem.js"></script>
+    <script type="text/javascript" src="/javascript/mui.js"></script>
+  <body>
+    <div class="nav-title com-padding">
+      <span><%= title %></span>
+      <a class="to-blog pointer">发微博</a>
+    </div>
+    <ul class="blogs com-padding">
+      <% data.forEach(function(item){ %>  
+        <li><h2><%= item.title %></h2>
+        <pre><%= item.content %></pre>
+        </li>  
+      <% }) %> 
+    </ul>
+    <button type="button" class="login pointer"><a href="/login">登录</a> </button>
+    <button type="button" class="regest pointer"><a href="/regest">注册</a></button>
+  </body>
+</html>
+<script>
+// $('.login').click(function(){
+  // location.href('/login');
+// })
+
+
+</script>

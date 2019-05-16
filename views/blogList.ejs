@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>微博主页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+  <link rel='stylesheet' href='/stylesheets/blog.css' />
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <body>
+    <header>
+      <a href="/blog">写博客</a>
+    </header>
+  	<div class="wrapper">
+      <div class="left">
+        <div class="header"></div>
+      </div>
+      <ul class="blogs">
+        <% data.forEach(function(item){ %>  
+          <li><h2><%= item.title %></h2>
+          <pre><%= item.content %></pre>
+          </li>  
+        <% }) %> 
+      </ul>
+    </div>
+  </body>
+</html>
+<script>
+
+</script>

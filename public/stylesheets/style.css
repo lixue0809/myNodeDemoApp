@@ -1,0 +1,57 @@
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+p,
+a,
+ul,
+li,
+img {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    border-style: none;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    color: #3e3e3e;
+    -webkit-overflow-scrolling: touch
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #3e3e3e;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}

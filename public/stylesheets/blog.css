@@ -1,0 +1,9 @@
+.textarea {
+    width: 500px;
+    height: 500px;
+    resize: none;
+    display: block;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 24px;
+}
